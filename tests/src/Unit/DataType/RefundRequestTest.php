@@ -37,25 +37,25 @@ class RefundRequestTest extends RequestBaseTestBase
         return [
             'empty' => [
                 [
-                    'transactionId' => '',
-                    'refundTotal' => 0.0,
                     'merchant' => '',
                     'orderRef' => '',
                     'salt' => '',
                     'currency' => '',
                     'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
+                    'transactionId' => '',
+                    'refundTotal' => 0.0,
                 ],
                 new RefundRequest()
             ],
             'basic' => [
                 [
-                    'transactionId' => 'test-transaction-id',
-                    'refundTotal' => 42.5,
                     'merchant' => 'test-merchant',
                     'orderRef' => 'test-order-ref',
                     'salt' => 'test-salt',
                     'currency' => 'test-currency',
                     'sdkVersion' => 'test-sdk-version',
+                    'transactionId' => 'test-transaction-id',
+                    'refundTotal' => 42.5,
                 ],
                 $this->getBaseRefundRequest(),
             ],
