@@ -47,7 +47,7 @@ class InstantPaymentNotification extends ResponseBase implements JsonSerializabl
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = [];
 

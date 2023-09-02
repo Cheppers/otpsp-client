@@ -128,7 +128,7 @@ class PaymentRequest extends RequestBase
     /**
      * {@inheritdoc}
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $data = [];
 
