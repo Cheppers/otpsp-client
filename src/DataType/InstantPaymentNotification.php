@@ -49,26 +49,18 @@ class InstantPaymentNotification extends ResponseBase implements JsonSerializabl
      */
     public function jsonSerialize(): mixed
     {
-        $data = [];
+        $data = get_object_vars($this);
 
-        foreach (get_object_vars($this) as $key => $value) {
-            switch ($key) {
-                case 'salt':
-                case 'merchant':
-                case 'orderRef':
-                case 'transactionId':
-                case 'cardMask':
-                case 'method':
-                case 'finishDate':
-                case 'expiry':
-                case 'paymentDate':
-                case 'status':
-                case 'receiveDate':
-                    $data[$key] = $value;
-                    break;
-            }
-        }
-
-        return $data;
+        return [
+            'salt' => $data['salt'],
+            'orderRef' => $data['orderRef'],
+            'method' => $data['method'],
+            'merchant' => $data['merchant'],
+            'finishDate' => $data['finishDate'],
+            'paymentDate' => $data['paymentDate'],
+            'transactionId' => $data['transactionId'],
+            'status' => $data['status'],
+            'receiveDate' => $data['receiveDate']
+        ];
     }
 }
