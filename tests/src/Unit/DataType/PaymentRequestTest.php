@@ -29,8 +29,9 @@ class PaymentRequestTest extends RequestBaseTestBase
             'basic' => [
                 $this->getBasePaymentRequest(),
                 [
-                    'merchant' => 'test-merchant',
-                    'orderRef' => 'test-order-ref',
+                    'salt' => '',
+                    'currency' => '',
+                    'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
                     'customer' => 'test-customer',
                     'customerEmail' => 'test-email@example.com',
                     'language' => 'HU',
@@ -82,6 +83,8 @@ class PaymentRequestTest extends RequestBaseTestBase
                     'discount' => 41,
                     'timeout' => '2018-09-07T20:51:13+00:00',
                     'url' => 'test-url.com',
+                    'merchant' => 'test-merchant',
+                    'orderRef' => 'test-order-ref',
                     'urls' => [
                         'success' => 'success-test.com',
                         'fail' => 'fail-test.com',
@@ -98,6 +101,11 @@ class PaymentRequestTest extends RequestBaseTestBase
         return [
             'empty' => [
                 [
+                    'merchant' => '',
+                    'orderRef' => '',
+                    'salt' => '',
+                    'currency' => '',
+                    'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
                     'customer' => '',
                     'customerEmail' => '',
                     'language' => '',
@@ -116,16 +124,16 @@ class PaymentRequestTest extends RequestBaseTestBase
                     'discount' => 0,
                     'timeout' => '',
                     'url' => '',
-                    'merchant' => '',
-                    'orderRef' => '',
-                    'salt' => '',
-                    'currency' => '',
-                    'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
                 ],
                 new PaymentRequest(),
             ],
             'basic' => [
                 [
+                    'merchant' => 'test-merchant',
+                    'orderRef' => 'test-order-ref',
+                    'salt' => 'd471d2fb24c5a395563ff60f8ba769d1',
+                    'currency' => 'HUF',
+                    'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
                     'customer' => 'test-customer',
                     'customerEmail' => 'test-email@example.com',
                     'language' => 'HU',
@@ -181,11 +189,6 @@ class PaymentRequestTest extends RequestBaseTestBase
                         'cancel' => 'cancel-test.com',
                         'timeout' => 'timeout-test.com',
                     ],
-                    'merchant' => 'test-merchant',
-                    'orderRef' => 'test-order-ref',
-                    'salt' => 'd471d2fb24c5a395563ff60f8ba769d1',
-                    'currency' => 'HUF',
-                    'sdkVersion' => 'SimplePay_PHP_SDK_2.0_180930:33ccd5ed8e8a965d18abfae333404184',
                 ],
                 $this->getBasePaymentRequest(),
             ],
